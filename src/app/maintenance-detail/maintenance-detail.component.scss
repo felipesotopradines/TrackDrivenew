@@ -1,0 +1,43 @@
+.maintenance-card {
+    margin: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    background-color: #f9f9f9;
+  }
+  
+  ion-card-header {
+    background-color: #747474; /* Verde suave (Satisfactorio) */
+    color: #ffffff; /* Texto blanco */
+    text-align: center;
+    padding: 15px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+  }
+  
+  ion-card-title {
+    font-size: 1.4rem;
+    font-weight: bold;
+  }
+  
+  ion-card-subtitle {
+    font-size: 1rem;
+    font-style: italic;
+    color: #e8f5e9; /* Verde pálido */
+  }
+  
+  ion-card-content {
+    padding: 15px;
+  }
+  
+  ion-row {
+    margin-bottom: 10px;
+  }
+  
+  ion-col {
+    font-size: 1rem;
+  }
+  
+  ion-col:first-child {
+    font-weight: bold;
+  }
+  

@@ -1,0 +1,139 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Detalles del Vehículo</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <!-- Mostrar detalles solo si el vehículo está disponible -->
+  <ion-card *ngIf="vehicle">
+    <ion-card-header>
+      <ion-card-title>Información del Vehículo</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item>
+        <ion-label><strong>Marca:</strong></ion-label>
+        <ion-text>{{ vehicle.marca }}</ion-text>
+      </ion-item>
+      <ion-item>
+        <ion-label><strong>Modelo:</strong></ion-label>
+        <ion-text>{{ vehicle.modelo }}</ion-text>
+      </ion-item>
+      <ion-item>
+        <ion-label><strong>Año:</strong></ion-label>
+        <ion-text>{{ vehicle.ano }}</ion-text>
+      </ion-item>
+      <ion-item>
+        <ion-label><strong>Color:</strong></ion-label>
+        <ion-text>{{ vehicle.color }}</ion-text>
+      </ion-item>
+      <ion-item>
+        <ion-label><strong>Patente:</strong></ion-label>
+        <ion-text>{{ vehicle.patente }}</ion-text>
+      </ion-item>
+      <ion-item>
+        <ion-label><strong>Kilometraje:</strong></ion-label>
+        <ion-text>{{ vehicle.kilometraje }} km</ion-text>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- Carrusel de Imágenes del Vehículo -->
+  <ion-slides pager="true" [options]="slideOpts" *ngIf="vehicle" class="vehicle-image-slider">
+    <!-- Imagen Frontal -->
+    <ion-slide>
+      <ion-card>
+        <ion-card-header>
+          <ion-card-title>Imagen Frontal</ion-card-title>
+        </ion-card-header>
+        <ion-card-content class="vehicle-image-container">
+          <ion-img
+            [src]="vehicle.front_b64 ? 'data:image/jpeg;base64,' + vehicle.front_b64 : 'assets/img/placeholder_car_front.jpg'"
+            alt="Imagen frontal del vehículo"
+            class="vehicle-image"
+          ></ion-img>
+        </ion-card-content>
+      </ion-card>
+    </ion-slide>
+
+    <!-- Imagen Trasera -->
+    <ion-slide>
+      <ion-card>
+        <ion-card-header>
+          <ion-card-title>Imagen Trasera</ion-card-title>
+        </ion-card-header>
+        <ion-card-content class="vehicle-image-container">
+          <ion-img
+            [src]="vehicle.back_b64 ? 'data:image/jpeg;base64,' + vehicle.back_b64 : 'assets/img/placeholder_car_back.jpg'"
+            alt="Imagen trasera del vehículo"
+            class="vehicle-image"
+          ></ion-img>
+        </ion-card-content>
+      </ion-card>
+    </ion-slide>
+
+    <!-- Imagen Interior -->
+    <ion-slide>
+      <ion-card>
+        <ion-card-header>
+          <ion-card-title>Imagen Interior</ion-card-title>
+        </ion-card-header>
+        <ion-card-content class="vehicle-image-container">
+          <ion-img
+            [src]="vehicle.inside_b64 ? 'data:image/jpeg;base64,' + vehicle.inside_b64 : 'assets/img/placeholder_car_inter.jpg'"
+            alt="Imagen interior del vehículo"
+            class="vehicle-image"
+          ></ion-img>
+        </ion-card-content>
+      </ion-card>
+    </ion-slide>
+  </ion-slides>
+
+  <!-- Mensaje de alerta para el usuario -->
+  <ion-item lines="none" color="warning" class="alert-info">
+    <ion-label>
+      Si encuentras algún error o los datos han cambiado, utiliza el botón a continuación para editar la información.
+    </ion-label>
+  </ion-item>
+
+  <!-- Botones de acciones -->
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12">
+        <!-- Botón Editar Detalles -->
+        <ion-button expand="block" color="warning" (click)="editVehicle(vehicle)">
+          <ion-icon name="create" slot="start"></ion-icon>
+          Editar Detalles
+        </ion-button>
+      </ion-col>
+      <ion-col size="12">
+        <!-- Botón Volver a Mis Vehículos -->
+        <ion-button expand="block" color="tertiary" [routerLink]="['/my-vehicles']">
+          <ion-icon name="car-sport" slot="start"></ion-icon>
+          Volver a Mis Vehículos
+        </ion-button>
+      </ion-col>
+      <ion-col size="12">
+        <!-- Botón Volver a Main -->
+        <ion-button expand="block" color="primary" [routerLink]="['/main']">
+          <ion-icon name="home" slot="start"></ion-icon>
+          Volver a Main
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <!-- Nota confidencial -->
+  <ion-item lines="none">
+    <ion-label class="confidential-note" color="medium">
+      Esta información es confidencial y solo puede ser vista por el propietario o el administrador del sistema.
+    </ion-label>
+  </ion-item>
+
+  <!-- Mostrar un mensaje si no se encuentra el vehículo -->
+  <ion-card *ngIf="!vehicle">
+    <ion-card-content>
+      <ion-text color="danger">No se encontraron detalles para este vehículo.</ion-text>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

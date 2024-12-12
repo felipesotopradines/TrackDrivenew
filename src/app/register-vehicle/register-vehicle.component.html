@@ -1,0 +1,159 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Registro de Vehículo</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form>
+    <!-- Selección de Marca -->
+    <ion-item>
+      <ion-label>Marca</ion-label>
+      <ion-select
+        [(ngModel)]="vehicle.brand"
+        name="marca"
+        (ionChange)="loadModels(vehicle.brand)"
+        required
+      >
+        <ion-select-option *ngFor="let brand of brands" [value]="brand.nombre">
+          {{ brand.nombre }}
+        </ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <!-- Selección de Modelo -->
+    <ion-item>
+      <ion-label>Modelo</ion-label>
+      <ion-select [(ngModel)]="vehicle.model" name="modelo" required>
+        <ion-select-option
+          *ngFor="let model of models"
+          [value]="model.modelo"
+          >{{ model.modelo }}</ion-select-option
+        >
+      </ion-select>
+    </ion-item>
+
+    <!-- Selección de Año -->
+    <ion-item>
+      <ion-label position="stacked">Año</ion-label>
+      <ion-input
+        type="text"
+        name="año"
+        [(ngModel)]="vehicle.year"
+        required
+        pattern="^[0-9]{4}$"
+        maxlength="4"
+        inputmode="numeric"
+        placeholder="Ej. 2020"
+      ></ion-input>
+    </ion-item>
+
+    <!-- Selección de Color -->
+    <ion-item>
+      <ion-label>Color</ion-label>
+      <ion-select [(ngModel)]="vehicle.color" name="color" required>
+        <ion-select-option *ngFor="let color of colors" [value]="color.color">{{
+          color.color
+        }}</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <!-- Entrada de Matrícula -->
+    <ion-item>
+      <ion-label position="stacked">Matrícula</ion-label>
+      <ion-input
+        type="text"
+        name="matricula"
+        [(ngModel)]="vehicle.licensePlate"
+        required
+      ></ion-input>
+    </ion-item>
+
+    <!-- Entrada de Kilometraje -->
+    <ion-item>
+      <ion-label position="stacked">Kilometraje</ion-label>
+      <ion-input
+        type="text"
+        name="kilometraje"
+        [(ngModel)]="vehicle.mileage"
+        required
+        pattern="^[0-9]{1,6}$"
+        maxlength="6"
+        inputmode="numeric"
+        placeholder="Ej. 35000"
+      ></ion-input>
+    </ion-item>
+
+    <!-- Sección de imágenes -->
+    <ion-segment [(ngModel)]="selectedSection" name="seccion" value="frontal">
+      <ion-segment-button value="frontal">
+        <ion-label>Frontal</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="trasera">
+        <ion-label>Trasera</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="interior">
+        <ion-label>Interior</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+
+    <!-- Captura de imagen Frontal -->
+    <div *ngIf="selectedSection === 'frontal'" class="aspect-ratio-16-9">
+      <ion-item>
+        <ion-label>Captura Frontal</ion-label>
+        <ion-button expand="block" (click)="takePicture('frontal')"
+          >Tomar Foto</ion-button
+        >
+      </ion-item>
+      <ion-img
+        class="fixed-size"
+        [src]="vehicleImages.frontal || 'assets/img/placeholder_car_front.jpg'"
+      ></ion-img>
+    </div>
+
+    <!-- Captura de imagen Trasera -->
+    <div *ngIf="selectedSection === 'trasera'" class="aspect-ratio-16-9">
+      <ion-item>
+        <ion-label>Captura Trasera</ion-label>
+        <ion-button expand="block" (click)="takePicture('trasera')"
+          >Tomar Foto</ion-button
+        >
+      </ion-item>
+      <ion-img
+        class="fixed-size"
+        [src]="vehicleImages.trasera || 'assets/img/placeholder_car_back.jpg'"
+      ></ion-img>
+    </div>
+
+    <!-- Captura de imagen Interior -->
+    <div *ngIf="selectedSection === 'interior'" class="aspect-ratio-16-9">
+      <ion-item>
+        <ion-label>Captura Interior</ion-label>
+        <ion-button expand="block" (click)="takePicture('interior')"
+          >Tomar Foto</ion-button
+        >
+      </ion-item>
+      <ion-img
+        class="fixed-size"
+        [src]="vehicleImages.interior || 'assets/img/placeholder_car_inter.png'"
+      ></ion-img>
+    </div>
+
+    <!-- Botón Registrar con el mismo formato que "Volver a Main" -->
+    <div class="button-container">
+      <ion-button expand="block" color="primary" (click)="confirmRegister()">
+        <ion-icon name="checkmark-circle" slot="start"></ion-icon>
+        Registrar
+      </ion-button>
+    </div>
+  </form>
+
+  <!-- Botón Volver a Main -->
+  <div class="button-container">
+    <ion-button expand="block" color="secondary" [routerLink]="['/main']">
+      <ion-icon name="arrow-back" slot="start"></ion-icon>
+      Volver a Main
+    </ion-button>
+  </div>
+
+</ion-content>

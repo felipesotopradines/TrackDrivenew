@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Bienvenido</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="fade-in content-center">
+  <!-- Logo -->
+  <div class="logo-container">
+    <ion-img src="assets/img/TrackDrive_Logo.jpg" alt="Logo" class="logo"></ion-img>
+  </div>
+
+  <!-- Tarjeta de bienvenida -->
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Bienvenido {{ name }}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <!-- Botón de Cambiar Contraseña -->
+      <ion-button expand="block" color="primary" (click)="goToChangePassword()">Cambiar Contraseña</ion-button>
+      <!-- Botón de Logout con confirmación -->
+      <ion-button expand="block" color="danger" (click)="logout()">Logout</ion-button>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- Tarjeta con botones de navegación -->
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Acciones Rápidas</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <!-- Botón para navegar a "Register Vehicle" -->
+      <ion-button expand="block" color="secondary" [routerLink]="['/register-vehicle']">
+        Registrar Vehículo
+      </ion-button>
+      <!-- Botón para navegar a "My Vehicles" -->
+      <ion-button expand="block" color="tertiary" [routerLink]="['/my-vehicles']">
+        Mis Vehículos
+      </ion-button>
+      <!-- Botón para navegar a "Sucursales" -->
+      <ion-button expand="block" color="success" [routerLink]="['/sucursales']">
+        Sucursales
+      </ion-button>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

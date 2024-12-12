@@ -1,0 +1,64 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Detalle de Mantenimiento</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="closeModal()">
+        <ion-icon name="close" slot="icon-only"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card class="maintenance-card">
+    <ion-card-header>
+      <ion-card-subtitle>{{ maintenance.jobName }}</ion-card-subtitle>
+      <ion-card-subtitle>Tipo de Mantenimiento</ion-card-subtitle>
+    </ion-card-header>
+    
+    <ion-card-header [ngStyle]="{
+      'background-color': getStatusColor(maintenance.Status),
+      'margin': '5px',
+      'border-radius': '20px',
+      'border': '1px solid #ccc'
+    }">
+      <ion-card-subtitle>Estado: {{ maintenance.Status }}</ion-card-subtitle>
+    </ion-card-header>
+
+
+    <ion-card-content>
+      <ion-grid>
+        <ion-row>
+          <ion-col size="6">
+            <strong>Fecha de Creación:</strong>
+          </ion-col>
+          <ion-col size="6">{{ maintenance.dateCreate }}</ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="6">
+            <strong>Fecha de Inicio:</strong>
+          </ion-col>
+          <ion-col size="6">{{ maintenance.dateStart }}</ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="6">
+            <strong>Fecha de Fin:</strong>
+          </ion-col>
+          <ion-col size="6">{{ maintenance.dateEnd }}</ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="6">
+            <strong>Descripción:</strong>
+          </ion-col>
+          <ion-col size="6">{{ maintenance.Message }}</ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="6">
+            <strong>Monto:</strong>
+          </ion-col>
+          <ion-col size="6">{{ maintenance.Mount | formatClp }}</ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

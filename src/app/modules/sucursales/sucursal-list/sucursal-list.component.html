@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Sucursales</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let sucursal of sucursales">
+      <ion-label>
+        <h2>{{ sucursal.nombre }}</h2>
+        <p>{{ sucursal.direccion }}</p>
+      </ion-label>
+      <ion-button (click)="viewDetails(sucursal)" color="primary">
+        Detalle
+      </ion-button>
+    </ion-item>
+  </ion-list>
+
+  <!-- Botón Volver a Main -->
+  <div class="button-container">
+    <ion-button expand="block" color="secondary" [routerLink]="['/main']">
+      <ion-icon name="arrow-back" slot="start"></ion-icon>
+      Volver a Main
+    </ion-button>
+  </div>
+</ion-content>

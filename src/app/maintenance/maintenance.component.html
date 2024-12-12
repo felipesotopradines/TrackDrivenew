@@ -1,0 +1,60 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Mantenimientos</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="refreshData()">
+        <ion-icon name="refresh-circle" slot="icon-only"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <!-- Leyenda -->
+  <div class="legend-container">
+    <p>Esta sección muestra los registros de mantenimiento asociados al vehículo seleccionado.</p>
+  </div>
+
+  <!-- Botón Agregar Mantenimiento -->
+  <div class="button-container">
+    <ion-button expand="block" color="primary" (click)="addMaintenance()">
+      <ion-icon name="add-circle" slot="start"></ion-icon>
+      Solicitar Mantenimiento
+    </ion-button>
+  </div>
+
+  <!-- Tabla de Mantenimientos -->
+  <div class="table-container">
+    <table class="maintenance-table">
+      <thead>
+        <tr>
+          <th>Fecha Creación</th>
+          <th>Trabajo</th>
+          <th>Estado</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let maintenance of maintenances; let i = index" [class.odd]="i % 2 === 0">
+          <td>{{ maintenance.dateCreate }}</td>
+          <td>{{ maintenance.jobName }}</td>
+          <td>{{ maintenance.Status }}</td>
+          <td class="action-buttons">
+            <!-- Botón Ver Detalle -->
+            <ion-button size="small" color="primary" (click)="viewDetails(maintenance)">
+              <ion-icon name="eye" slot="start"></ion-icon>
+            </ion-button>
+          </td>          
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Botón Volver -->
+  <div class="button-container">
+    <ion-button expand="block" color="secondary" [routerLink]="['/my-vehicles']">
+      <ion-icon name="arrow-back" slot="start"></ion-icon>
+      Volver a Vehículos
+    </ion-button>
+  </div>
+</ion-content>

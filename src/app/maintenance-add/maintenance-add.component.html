@@ -1,0 +1,58 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Agregar Tarea de Mantenimiento</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="closeModal()">
+        <ion-icon name="close" slot="icon-only"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form (ngSubmit)="submitMaintenance()" #maintenanceForm="ngForm">
+    
+      <!-- Selección de Trabajo -->
+      <ion-item>
+        <ion-label position="stacked">Trabajo</ion-label>
+        <ion-select
+          [(ngModel)]="newMaintenance.jobID"
+          name="jobID"
+          (ionChange)="onJobChange($event.detail.value)"
+          required>
+          <ion-select-option *ngFor="let job of jobs" [value]="job.ID">
+            {{ job.Name }} - {{ job.Price | formatClp }}
+          </ion-select-option>
+        </ion-select>
+      </ion-item>
+      
+
+      <!-- Monto -->
+      <ion-item>
+        <ion-label position="stacked">Monto</ion-label>
+        <ion-input type="number" [value]="newMaintenance.Mount" readonly>
+        </ion-input>
+      </ion-item>
+
+      <!-- Estado -->
+      <ion-item>
+        <ion-label position="stacked">Estado</ion-label>
+        <ion-input type="text" [(ngModel)]="newMaintenance.Status" name="Status" readonly>
+        </ion-input>
+      </ion-item>
+
+      <!-- Descripción -->
+      <ion-item>
+        <ion-label position="stacked">Descripción</ion-label>
+        <ion-textarea [(ngModel)]="newMaintenance.Message" name="Message" required>
+        </ion-textarea>
+      </ion-item>
+
+      <!-- Botón Guardar -->
+      <div class="button-container">
+        <ion-button expand="block" type="submit" color="primary" [disabled]="!maintenanceForm.form.valid">
+          Solicitar Mantenimiento
+        </ion-button>
+      </div>
+  </form>
+</ion-content>

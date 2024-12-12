@@ -1,0 +1,7 @@
+{
+  "name": "TrackDrive3",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Server Config</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="fade-in">
+  <!-- Logo centrado arriba -->
+  <div class="logo-container">
+    <ion-img src="assets/img/TrackDrive_Logo.jpg" alt="Logo" class="logo"></ion-img>
+  </div>
+
+  <!-- Tarjeta de inicio de sesión -->
+  <ion-card>
+   
+    <ion-card-content>
+
+        <!-- Formulario -->
+  <form (submit)="saveServerConfig()">
+    <!-- Campo IP -->
+    <ion-item>
+      <ion-label position="floating">IP Servidor</ion-label>
+      <ion-input [(ngModel)]="serverConfig.ip" name="ip" type="text" required></ion-input>
+    </ion-item>
+
+    <!-- Campo Puerto -->
+    <ion-item>
+      <ion-label position="floating">Puerto</ion-label>
+      <ion-input [(ngModel)]="serverConfig.port" name="port" type="number" required></ion-input>
+    </ion-item>
+
+    <!-- Botón Guardar -->
+    <ion-button expand="full" type="submit" color="primary">Guardar</ion-button>
+  </form>
+      
+    </ion-card-content>
+  </ion-card>
+</ion-content>

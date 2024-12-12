@@ -1,0 +1,43 @@
+# Comandos y su propósito
+
+-- Instalar paquetes Node.js
+npm i
+# Instala todas las dependencias listadas en el archivo package.json.
+# Esto incluye bibliotecas necesarias para el desarrollo y producción.
+
+-- Generar empaquetado principal
+ionic build --prod
+# Construye la aplicación Ionic en modo producción.
+# Optimiza el código eliminando comentarios, reduciendo el tamaño del JavaScript y CSS, y mejorando el rendimiento.
+
+-- Ejecutar backend 
+npm run start
+# esto solo para pruebas con en navegador local (PC)
+# Ejecuta un script definido en el archivo package.json para iniciar  backend
+
+-- Ejecutar frontend
+npm rum serve:frontend
+# esto solo para pruebas con en navegador local (PC)
+# Ejecuta un script definido en el archivo package.json para iniciar  frontend
+
+-- Ejecutar backend y frontend
+npm run start:all
+# esto solo para pruebas con en navegador local (PC)
+# Ejecuta un script definido en el archivo package.json para iniciar simultáneamente el backend y el frontend.
+# Usa una herramienta como concurrently para ejecutar ambos procesos en paralelo.
+
+-- Agregar plataforma Android
+ionic capacitor add android
+# Agrega la plataforma Android al proyecto Capacitor.
+# Crea un proyecto Android en la carpeta android dentro del directorio del proyecto.
+
+-- Copiar archivos a la plataforma Android
+ionic capacitor copy android
+# Copia los archivos generados por el build (en la carpeta www) al proyecto Android.
+# Esto asegura que el frontend actualizado esté disponible en la plataforma.
+
+-- Sincronizar la plataforma Android
+ionic capacitor sync android
+# Sincroniza los cambios realizados en el proyecto Capacitor con el proyecto Android.
+# Combina los comandos `copy` y `update` para actualizar los archivos y la configuración de la plataforma.
+

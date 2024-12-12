@@ -1,0 +1,72 @@
+/* Contenedor de la tabla */
+.table-container {
+  padding: 20px;
+}
+
+.vehicle-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.vehicle-table th, .vehicle-table td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+  vertical-align: middle; /* Alinear al centro vertical */
+}
+
+.vehicle-table th {
+  background-color: #f4f4f4;
+  font-weight: bold;
+}
+
+.vehicle-table td ion-img {
+  width: 100px;
+  height: auto;
+  border-radius: 8px;
+}
+
+/* Alinear y ajustar el tamaño de los botones en la columna de acciones */
+.action-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.action-buttons ion-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px; /* Tamaño de fuente ajustado */
+  width: 20px;  /* Tamaño aumentado */
+  height: 80px; /* Tamaño aumentado */
+  padding: 0;
+}
+
+.action-buttons ion-button ion-icon {
+  margin: 0; /* No margen para centrar el icono */
+}
+
+/* Contenedor del botón Volver a Main */
+.button-container {
+  margin: 20px;
+}
+
+ion-button[expand="block"] {
+  width: 100%;
+}
+
+/* Estilo del texto de detalle de cada vehículo */
+.vehicle-table td p {
+  margin: 5px 0;
+  font-size: 14px;
+}
+
+.imageIcon {
+  width: 100px;
+  height: 66.66px;    
+  object-fit: contain; /* Ajusta la imagen sin recortar */
+  background-color: #f0f0f0; /* Color de fondo para los bordes vacíos */
+}

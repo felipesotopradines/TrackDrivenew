@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Inicio de Sesión</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="fade-in">
+  <!-- Logo centrado arriba -->
+  <div class="logo-container">
+    <ion-img src="assets/img/TrackDrive_Logo.jpg" alt="Logo" class="logo"></ion-img>
+  </div>
+
+  <!-- Tarjeta de inicio de sesión -->
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Iniciar Sesión</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <!-- Campo de Correo Electrónico -->
+      <ion-item>
+        <ion-label position="floating">Correo Electrónico</ion-label>
+        <ion-input [(ngModel)]="email" type="email" required></ion-input>
+      </ion-item>
+
+      <!-- Campo de Contraseña -->
+      <ion-item>
+        <ion-label position="floating">Contraseña</ion-label>
+        <ion-input [(ngModel)]="password" type="password" required></ion-input>
+      </ion-item>
+
+      <!-- Botón Iniciar Sesión -->
+      <ion-button expand="full" (click)="onLogin()">Iniciar Sesión</ion-button>
+
+      <!-- Botón Olvidé mi Contraseña -->
+      <ion-button expand="full" color="secondary" (click)="goToResetPassword()">Olvidé mi Contraseña</ion-button>
+
+      <!-- Botón Registrarse -->
+      <ion-button expand="full" color="tertiary" (click)="goToRegister()">Registrarse</ion-button>
+      <br />
+      <ion-button expand="full" color="secondary" (click)="goToServerConfig()">Configurar IP y Puerto</ion-button>
+      
+    </ion-card-content>
+  </ion-card>
+</ion-content>

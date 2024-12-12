@@ -1,0 +1,61 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Mis Vehículos</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="refreshData()">
+        <ion-icon name="refresh-circle" slot="icon-only"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="table-container">
+    <table class="vehicle-table">
+      <thead>
+        <tr>
+          <th>Imagen</th>
+          <th>Detalle</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let vehicle of vehicles">
+          <td>
+            <ion-img [src]="vehicle.frontImage" class="imageIcon"></ion-img>
+          </td>
+          <td>
+            <strong>Marca:</strong> {{ vehicle.marca }}<br>
+            <strong>Modelo:</strong> {{ vehicle.modelo }}
+          </td>
+          <td class="action-buttons">
+            <!-- Botón Ver Detalle -->
+            <ion-button size="small" color="primary" (click)="viewDetails(vehicle)">
+              <ion-icon name="eye" slot="start"></ion-icon>
+            </ion-button>
+            <!-- Botón Modificar -->
+            <ion-button size="small" color="warning" (click)="editVehicle(vehicle)">
+              <ion-icon name="create" slot="start"></ion-icon>
+            </ion-button>
+            <!-- Botón Mantenimientos -->
+            <ion-button size="small" color="primary" (click)="viewMaintenance(vehicle)">
+              <ion-icon name="build" slot="start"></ion-icon>
+            </ion-button>
+            <!-- Botón Eliminar -->
+            <ion-button size="small" color="danger" (click)="deleteVehicle(vehicle)">
+              <ion-icon name="trash" slot="start"></ion-icon>
+            </ion-button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Botón Volver a Main -->
+  <div class="button-container">
+    <ion-button expand="block" color="secondary" [routerLink]="['/main']">
+      <ion-icon name="arrow-back" slot="start"></ion-icon>
+      Volver a Main
+    </ion-button>
+  </div>
+</ion-content>

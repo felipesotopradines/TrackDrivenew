@@ -1,0 +1,45 @@
+/* Estilos para animación de fade-in */
+.fade-in {
+    animation: fadeIn ease 2s;
+  }
+  
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  
+  /* Logo centrado arriba */
+  .logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  
+  .logo {
+    width: 150px; /* Tamaño del logo */
+    height: auto;
+  }
+  
+  /* Estilo de botones */
+  ion-button {
+    margin-top: 10px;
+  }
+  
+  /* Tarjetas */
+  ion-card {
+    margin: 20px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+  }
+  
+  ion-card-title {
+    text-align: center;
+  }
+  

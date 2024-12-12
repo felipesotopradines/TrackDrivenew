@@ -1,0 +1,76 @@
+/* Estilos para animación de fade-in */
+.fade-in {
+  animation: fadeIn ease 2s;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Centrado del contenido */
+.content-center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%; /* Ajusta la altura para centrar las tarjetas */
+}
+
+/* Logo centrado en la parte superior */
+.logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 10px 0;
+}
+
+.logo {
+  width: 100px; /* Ajustar tamaño del logo */
+  height: auto;
+}
+
+/* Estilo de botones con espacios y bordes */
+ion-button {
+  margin-top: 10px;
+}
+
+/* Tarjetas */
+ion-card {
+  width: 90%;
+  max-width: 400px;
+  margin: 20px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+/* Personalización adicional de los botones */
+ion-button[color="primary"] {
+  background-color: #007bff;
+  color: white;
+}
+
+ion-button[color="danger"] {
+  background-color: #dc3545;
+  color: white;
+}
+
+ion-button[color="secondary"] {
+  background-color: #6c757d;
+  color: white;
+}
+
+ion-button[color="tertiary"] {
+  background-color: #17a2b8;
+  color: white;
+}
+
+ion-card-title {
+  text-align: center;
+}

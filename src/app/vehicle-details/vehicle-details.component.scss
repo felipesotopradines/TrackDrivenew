@@ -1,0 +1,201 @@
+/* Variables */
+$background-color-light: #f9f9f9;
+$background-color-primary: #007bff;
+$background-color-warning: #ffc107;
+$background-color-secondary: #6c757d;
+$background-color-tertiary: #28a745;
+$shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+$border-radius: 8px;
+$text-color-light: #fff;
+$text-color-dark: #666;
+
+/* Mixins */
+@mixin rounded {
+  border-radius: $border-radius;
+}
+
+@mixin box-shadow {
+  box-shadow: $shadow;
+}
+
+@mixin transition($property: background-color, $duration: 0.3s) {
+  transition: $property $duration ease;
+}
+
+/* Contenedor general */
+.container {
+  margin: 20px auto;
+  max-width: 800px;
+  padding: 20px;
+  background-color: $background-color-light;
+  @include rounded;
+  @include box-shadow;
+}
+
+/* Título centrado */
+.text-center {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 1.8em;
+}
+
+/* Descripción */
+.description {
+  font-size: 1em;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* Separador */
+hr {
+  border: 0;
+  height: 1px;
+  background: #ddd;
+  margin: 20px 0;
+}
+
+/* Imagen del vehículo */
+.vehicle-image {
+  width: 100%;
+  max-width: 350px;
+  height: auto;
+  object-fit: cover;
+  margin: 0 auto;
+  @include rounded;
+  @include box-shadow;
+}
+
+/* Tarjeta */
+.card {
+  margin-bottom: 20px;
+  background-color: #fff;
+  @include rounded;
+  @include box-shadow;
+
+  &-header {
+    background-color: $background-color-primary;
+    color: $text-color-light;
+    padding: 10px;
+    font-size: 1.2em;
+    @include rounded;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+  }
+
+  &-body {
+    padding: 15px;
+
+    p {
+      margin: 10px 0;
+      font-size: 1em;
+      line-height: 1.5;
+    }
+  }
+}
+
+/* Botones */
+button {
+  padding: 10px 20px;
+  font-size: 1em;
+  border: none;
+  @include rounded;
+  cursor: pointer;
+  @include transition;
+  width: 100%; /* Para ocupar el ancho */
+
+  &.btn-warning {
+    background-color: $background-color-warning;
+    color: $text-color-light;
+
+    &:hover {
+      background-color: darken($background-color-warning, 10%);
+    }
+  }
+
+  &.btn-secondary {
+    background-color: $background-color-secondary;
+    color: $text-color-light;
+
+    &:hover {
+      background-color: darken($background-color-secondary, 10%);
+    }
+  }
+
+  &.btn-primary {
+    background-color: $background-color-primary;
+    color: $text-color-light;
+
+    &:hover {
+      background-color: darken($background-color-primary, 10%);
+    }
+  }
+
+  &.btn-tertiary {
+    background-color: $background-color-tertiary;
+    color: $text-color-light;
+
+    &:hover {
+      background-color: darken($background-color-tertiary, 10%);
+    }
+  }
+}
+
+/* Notas y mensajes */
+.confidential-note {
+  font-size: 0.9em;
+  color: $text-color-dark;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.alert-info {
+  background-color: #e9f7fe;
+  color: #31708f;
+  padding: 10px;
+  margin-bottom: 20px;
+  @include rounded;
+  text-align: center;
+  font-size: 1em;
+}
+
+/* Ion componentes */
+ion-card {
+  max-width: 350px;
+  margin: 10px auto;
+  @include rounded;
+  @include box-shadow;
+
+  &-header {
+    text-align: center;
+    font-weight: bold;
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #ddd;
+    padding: 10px;
+    @include rounded;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+  }
+
+  &-content {
+    padding: 15px;
+  }
+}
+
+ion-slides {
+  height: 350px;
+  margin-bottom: 20px;
+}
+
+ion-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.vehicle-image-slide {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  @include rounded;
+  @include box-shadow;
+}
